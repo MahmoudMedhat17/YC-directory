@@ -5,7 +5,6 @@ import { auth, signIn, signOut } from "../../../auth";
 const Navbar = async () => {
   const session = await auth();
 
-  console.log(session);
   return (
     <header className="px-5 py-3 bg-white shadow-sm">
       <nav className="flex justify-between items-center">
@@ -29,7 +28,7 @@ const Navbar = async () => {
               >
                 <button type="submit">Logout</button>
               </form>
-              
+
               <Link href={`/user/${session?.user?.id}`}>
                 <Image
                   src={session?.user.image || ""}
