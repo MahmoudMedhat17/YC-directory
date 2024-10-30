@@ -10,7 +10,7 @@ const page = async ({
 
   const posts = [
     {
-      _createdAt: "Yesterday",
+      _createdAt: new Date(),
       views: 66,
       author: {
         _id: 1,
@@ -43,7 +43,7 @@ const page = async ({
           {query ? `Search results for ${query}` : "All Startups"}
         </p>
 
-        <ul className="mt-7 grid-card">
+        <ul className="mt-7 card_grid">
           {posts.length > 0 ? (
             posts.map((post) => <StartupCard post={post} key={post._id} />)
           ) : (
