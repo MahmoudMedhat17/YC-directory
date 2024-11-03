@@ -1,14 +1,13 @@
 import { Eye } from "lucide-react";
 import { Button } from "./ui/button";
 import Link from "next/link";
-import Image from "next/image";
 import { formatDate } from "@/lib/utils";
 
 const StartupCard = ({ post }) => {
   const {
     _createdAt,
     views,
-    author: { _id: authorId, name },
+    author: { _id: authorId, name, image: authorImg },
     _id,
     description,
     title,
@@ -35,7 +34,7 @@ const StartupCard = ({ post }) => {
           </Link>
         </div>
         <img
-          src={image}
+          src={authorImg}
           className="rounded-full w-16 h-16 cursor-pointer"
           alt="userImage"
         />
@@ -49,7 +48,7 @@ const StartupCard = ({ post }) => {
         <Link href={`/?query=${category.toLowerCase()}`}>
           <p className="text-16-medium">{category}</p>
         </Link>
-        <Button className="startup-card_btn">
+        <Button className="startup-card_btn" asChild>
           <Link href={`/startup/${_id}`}>Details</Link>
         </Button>
       </div>
