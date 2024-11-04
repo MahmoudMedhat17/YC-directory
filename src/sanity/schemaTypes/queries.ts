@@ -1,4 +1,4 @@
-import { defineQuery } from "next-sanity";
+import { defineQuery } from "next-sanity"
 
 
 export const STARTUPQUERY = defineQuery(`*[_type == "startup" && defined(slug.current)] | order(_createdAt desc){
@@ -12,5 +12,5 @@ export const STARTUPQUERY = defineQuery(`*[_type == "startup" && defined(slug.cu
     views,
     description,
     category,
-    image
+    image,
 }`);
