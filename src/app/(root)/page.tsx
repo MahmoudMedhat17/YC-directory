@@ -11,10 +11,12 @@ const page = async ({
   const query = (await searchParams).query;
 
   // const posts = await client.fetch(STARTUPQUERY);
-  const { data: posts } = await sanityFetch({ query: STARTUPQUERY });
+  const { data: posts } = await sanityFetch({
+    query: STARTUPQUERY,
+    params: { search: query || null },
+  });
   console.log(posts);
 
-  
   return (
     <>
       <section className="pink_container">

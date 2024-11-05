@@ -5,15 +5,20 @@ import { X } from "lucide-react";
 
 const SearchFormReset = () => {
   const reset = () => {
-    const form = document.querySelector(".search-btn") as HTMLFormElement;
+    const form = document.querySelector(".search-btn");
 
-    if (form) {
+    if (form instanceof HTMLFormElement) {
       form.reset();
     }
   };
 
   return (
-    <Button onClick={reset} type="submit" className="search-btn text-white">
+    <Button
+      onClick={reset}
+      name="query"
+      type="submit"
+      className="search-btn text-white"
+    >
       <X size={25} />
     </Button>
   );
