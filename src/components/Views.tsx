@@ -4,7 +4,7 @@ import { START_QUERY_VIEWS_BY_ID } from "@/sanity/schemaTypes/queries";
 
 const Views = async ({ id }: { id: string }) => {
   const { views: totalViews } = await client
-    .withConfig({ useCdn: true })
+    .withConfig({ useCdn: false })
     .fetch(START_QUERY_VIEWS_BY_ID, {
       id,
     });
