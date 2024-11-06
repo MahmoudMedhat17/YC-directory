@@ -1,6 +1,8 @@
 import Ping from "./Ping";
 import { client } from "@/sanity/lib/client";
 import { START_QUERY_VIEWS_BY_ID } from "@/sanity/schemaTypes/queries";
+import { writeClient } from "@/sanity/lib/writeClient";
+import { unstable_after as after } from "next/server";
 
 const Views = async ({ id }: { id: string }) => {
   const { views: totalViews } = await client
@@ -9,6 +11,13 @@ const Views = async ({ id }: { id: string }) => {
       id,
     });
 
+  after(async () => {
+    await writeClient
+      .patch(id)
+      .set({ views: totalViews + 1 })
+      .commit();
+  });
+
   return (
     <div className="view-container">
       <div className="absolute -top-2 -right-2">
@@ -16,7 +25,7 @@ const Views = async ({ id }: { id: string }) => {
       </div>
 
       <div className="view-text">
-        <p>Views: {totalViews}</p>
+        <span className="font-black">Views: {totalViews}</span>
       </div>
     </div>
   );
