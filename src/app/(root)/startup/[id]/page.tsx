@@ -16,11 +16,9 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const md = markdownit();
   const result = md.render(post?.pitch || "");
 
-  console.log(post);
-
   if (!post) notFound();
 
-  console.log(post);
+  // console.log(post);
   return (
     <>
       <section className="pink_container !min-h-[320px]">

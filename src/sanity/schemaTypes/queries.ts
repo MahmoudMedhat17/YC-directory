@@ -38,3 +38,15 @@ export const START_QUERY_VIEWS_BY_ID = defineQuery(`*[_type == "startup" && _id 
   _id,
   views
 }`);
+
+
+
+export const AUTHOR_QUERY_BY_ID = defineQuery(`*[_type == "author" && id == $id][0]{
+  _id,
+    id,
+    name,
+    userName,
+    email,
+    image,
+    bio
+}`);

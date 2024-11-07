@@ -15,7 +15,7 @@ const page = async ({
     query: STARTUPQUERY,
     params: { search: query || null },
   });
-  console.log(posts);
+  // console.log(posts);
 
   return (
     <>
