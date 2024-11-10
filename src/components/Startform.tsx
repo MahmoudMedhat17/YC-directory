@@ -28,8 +28,6 @@ const Startform = () => {
         pitch,
       };
 
-      console.log(formValues);
-
       await formSchema.parseAsync(formValues);
 
       const result = await createPitch(prevState, formData, pitch);
