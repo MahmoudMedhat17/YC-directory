@@ -9,7 +9,8 @@ import MDEditor from "@uiw/react-md-editor";
 import { formSchema } from "@/lib/validation";
 import { z } from "zod";
 import { useToast } from "@/hooks/use-toast";
-// import { useRouter } from "next/router";
+// import { createPitch } from "@/lib/actions";
+import { useRouter } from "next/navigation";
 
 const Startform = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -31,7 +32,7 @@ const Startform = () => {
 
       await formSchema.parseAsync(formValues);
 
-      // const result = await createdPitch(prevState, formData, pitch);
+      // const result = await createPitch(prevState, formData, pitch);
       // console.log(result);
 
       // if (result.status == "SUCCESS") {
@@ -89,7 +90,7 @@ const Startform = () => {
           Title
         </label>
         <Input
-          id="Title"
+          id="title"
           name="title"
           required
           placeholder="Title"
@@ -117,7 +118,7 @@ const Startform = () => {
           Category
         </label>
         <Input
-          id="Category"
+          id="category"
           name="category"
           required
           placeholder="Choose a category (e.g., Tech, Health, Education, etc.)"
@@ -128,12 +129,12 @@ const Startform = () => {
         )}
       </div>
       <div>
-        <label htmlFor="Link" className="startup-form_label">
+        <label htmlFor="link" className="startup-form_label">
           Image URL
         </label>
         <Input
-          id="image/Video Link"
-          name="image/Video Link"
+          id="link"
+          name="link"
           required
           placeholder="Paste a link to your demo or promotional media"
           className="startup-form_input"
