@@ -1,8 +1,5 @@
 import { client } from "@/sanity/lib/client";
-import {
-  PLAYLIST_BY_SLUG_QUERY,
-  STARTUP_QUERY_BY_ID,
-} from "@/sanity/schemaTypes/queries";
+import { STARTUP_QUERY_BY_ID } from "@/sanity/schemaTypes/queries";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
