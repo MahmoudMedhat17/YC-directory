@@ -1,5 +1,8 @@
 import { client } from "@/sanity/lib/client";
-import { STARTUP_QUERY_BY_ID } from "@/sanity/schemaTypes/queries";
+import {
+  PLAYLIST_BY_SLUG_QUERY,
+  STARTUP_QUERY_BY_ID,
+} from "@/sanity/schemaTypes/queries";
 import { notFound } from "next/navigation";
 import { formatDate } from "@/lib/utils";
 import Link from "next/link";
@@ -18,7 +21,6 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
 
   if (!post) notFound();
 
-  // console.log(post);
   return (
     <>
       <section className="pink_container !min-h-[320px]">
@@ -72,8 +74,6 @@ const page = async ({ params }: { params: Promise<{ id: string }> }) => {
         </div>
 
         <hr className="divider" />
-
-        {/*TODO :Editor selected startups*/}
 
         <Suspense fallback={<Skeleton className="view_skeleton" />}>
           <Views id={id} />

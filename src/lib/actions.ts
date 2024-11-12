@@ -7,7 +7,7 @@ import { parseServerAction } from "./utils";
 import slugify from "slugify";
 
 
-export const createPitch = async (states: any, form: FormData, pitch: string) => {
+export const createPitch = async (status: any, form: FormData, pitch: string) => {
 
     try {
         // Get the session
